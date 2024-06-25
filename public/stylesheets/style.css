@@ -3,3 +3,353 @@
   padding: 0;
   list-style: none;
 }
+
+body {
+  background-color: #000000;
+  font-family: 'Arial', 'sans-serif', serif;
+  margin: 0;
+  padding: 20px;
+  color: #FFFFFF;
+}
+
+h1 {
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #0e0d0d;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  flex-direction: row;
+}
+
+.book {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #444444;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  background-color: #0e0d0d;
+}
+
+.book img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.book-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #00FF00;
+}
+
+.book-authors {
+  font-style: italic;
+  color: #00FF00;
+}
+
+#bookCreationModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#bookCreationModal .modal-content {
+  background-color: #222222;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888888;
+  width: 80%;
+}
+
+#bookCreationModal .close {
+  color: #888888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#bookCreationModal .close:hover, #bookCreationModal .close:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.toast {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f44336;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+input, select, textarea, button {
+  border: 2px solid #888888;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 0.25rem;
+  font: 1.25rem / 1.5 sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  min-height: 10rem;
+}
+
+button {
+  background-color: #111111;
+  color: #00FF00;
+  border: 2px solid #00FF00;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  margin: 4px 2px;
+}
+
+button:hover {
+  background-color: #008f00;
+  color: white;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem 0;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+select {
+  appearance: none;
+  background-image: url('path/to/your/arrow-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 2rem;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-bottom: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #000000;
+}
+
+.sidebar li {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #00FF00;
+  font-weight: bold;
+  border: 1px solid #00FF00;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar li a:hover {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+.sidebar li:last-child {
+  margin-right: 0;
+}
+
+.book-instance {
+  border: 1px solid #888888;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.author-link, .genre-link, .bookinstance-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #00FF00;
+  transition: color 0.1s ease;
+}
+
+.author-link:hover, .genre-link:hover, .bookinstance-link:hover {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.delete-button {
+  width: 75px;
+  background-color: #ff6347;
+  color: #000000;
+  border: 2px solid #ff6347;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 15px rgba(255, 99, 71, 0.5);
+}
+
+.delete-button:hover {
+  background-color: #ff473d;
+  color: #FFFFFF;
+  border-color: #ff473d;
+  box-shadow: 0 0 20px rgba(255, 71, 61, 0.7);
+}
+
+.update-button {
+  width: 75px;
+  background-color: #1a1a1a;
+  color: #FFFFFF;
+  border: 2px solid #1a1a1a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 15px rgba(68, 68, 68, 0.5);
+}
+
+.update-button:hover {
+  background-color: #242424;
+  border-color: #242424;
+  box-shadow: 0 0 20px rgba(36, 36, 36, 0.7);
+}
+
+.book-title-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #00FF00;
+  transition: 0.1s ease;
+}
+
+.book-title-link:hover {
+  font-weight: bold;
+}
+
+.border-with-background {
+  border: 1px solid #888888;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.checkbox-container {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.checkbox-custom {
+  cursor: pointer;
+}
+
+.checkbox-custom input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkbox-custom label:before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  border: 2px solid #888888;
+  border-radius: 3px;
+  background-color: #000000;
+}
+
+.checkbox-custom input[type="checkbox"]:checked + label:before {
+  background-color: #00FF00;
+}
+
+.checkbox-custom label span {
+  font-weight: bold;
+}
+
+.checkbox-custom label:after {
+  content: '\2713';
+  display: none;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.checkbox-custom input[type="checkbox"]:checked + label:after {
+  display: inline-block;
+}
+
+#bookinstanceDetail, #genreDetail, #authorDetail, #bookDetail {
+  border: 1px solid #888888;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #000000;
+  color: #FFFFFF;
+}
